@@ -110,6 +110,7 @@ module RubyBox
       body = response.body
       begin
         parsed_body = JSON.parse(body)
+        raise if body.empty? || body.nil?
       rescue
         msg = body.nil? || body.empty? ? "no data returned" : body
         parsed_body = { "message" =>  msg }
